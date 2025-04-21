@@ -228,7 +228,7 @@
       <h1>Hello, {{ title }}</h1>
       <p>Congratulations! Your app is running. 🎉</p>
       
-      <!-- New counter section -->
+      <!-- Counter section -->
       <div class="counter-section">
         <h2>Contador: {{ contador }}</h2>
         <div class="button-group">
@@ -246,6 +246,41 @@
         <p *ngIf="mostrarTexto" class="message">
           {{ mensaje }}
         </p>
+      </div>
+
+      <!-- Lista section -->
+      <div class="lista-section">
+        <h2>Lista de Elementos</h2>
+        <div class="input-group">
+          <input 
+            type="text" 
+            [(ngModel)]="nuevoElemento" 
+            placeholder="Nuevo elemento"
+            (keyup.enter)="agregarElemento()"
+            class="input-elemento">
+          <app-miboton 
+            texto="Agregar" 
+            color="#2196F3"
+            (clickEvent)="agregarElemento()">
+          </app-miboton>
+        </div>
+        <ul class="lista-elementos">
+          @for (elemento of elementos; track elemento; let i = $index) {
+            <li>
+              @if (i === 0) {
+                <div class="elemento-editable">
+                  <input 
+                    type="text" 
+                    [value]="elemento"
+                    (input)="actualizarTitulo($any($event.target).value)"
+                    class="input-editable">
+                </div>
+              } @else {
+                {{ elemento }}
+              }
+            </li>
+          }
+        </ul>
       </div>
     </div>
     <div class="divider" role="separator" aria-label="Divider"></div>

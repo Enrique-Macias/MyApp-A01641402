@@ -17,8 +17,8 @@ export class AppComponent {
   mostrarTexto: boolean = false;
   mensaje: string = '';
 
-  // Nueva lista de elementos
-  elementos: string[] = ['Elemento 1', 'Elemento 2', 'Elemento 3'];
+  // Lista que incluye el título
+  elementos: string[] = [this.title, 'Elemento 2', 'Elemento 3'];
   nuevoElemento: string = '';
 
   incrementarContador() {
@@ -40,7 +40,12 @@ export class AppComponent {
     }
   }
 
-  // Nuevo método para agregar elementos
+  // Método para actualizar el título y el primer elemento de la lista
+  actualizarTitulo(nuevoTitulo: string) {
+    this.title = nuevoTitulo;
+    this.elementos[0] = nuevoTitulo;
+  }
+
   agregarElemento() {
     if (this.nuevoElemento.trim()) {
       this.elementos.push(this.nuevoElemento);
