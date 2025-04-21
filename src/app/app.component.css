@@ -1,0 +1,17 @@
+.counter-section {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.message {
+  color: var(--gray-700);
+  font-size: 1.1rem;
+  margin-top: 1rem;
+}

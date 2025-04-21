@@ -227,6 +227,26 @@
       </svg>
       <h1>Hello, {{ title }}</h1>
       <p>Congratulations! Your app is running. 🎉</p>
+      
+      <!-- New counter section -->
+      <div class="counter-section">
+        <h2>Contador: {{ contador }}</h2>
+        <div class="button-group">
+          <app-miboton 
+            texto="Incrementar" 
+            color="#4CAF50"
+            (clickEvent)="incrementarContador()">
+          </app-miboton>
+          <app-miboton 
+            texto="Decrementar" 
+            color="#f44336"
+            (clickEvent)="decrementarContador()">
+          </app-miboton>
+        </div>
+        <p *ngIf="mostrarTexto" class="message">
+          {{ mensaje }}
+        </p>
+      </div>
     </div>
     <div class="divider" role="separator" aria-label="Divider"></div>
     <div class="right-side">
